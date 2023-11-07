@@ -1,6 +1,7 @@
 # Wirdnix
 
-Homelab server (v3) built using nixos
+Homelab server (v3) built using nixos, docker, etc
 
-## Acknowledgements
-Thanks to [@danielemery](https://github.com/danielemery) for the heavy initial setup inspiration
+## Nixos
+
+The bare metal OS is nixos
