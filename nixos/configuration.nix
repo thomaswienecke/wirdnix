@@ -3,8 +3,8 @@
 {
   imports =
     [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-      ./disk-config.nix
+      ./hardware/hardware-configuration.nix
+      ./hardware/disk-config.nix
     ];
 
   boot.loader.systemd-boot.enable = true;
