@@ -30,7 +30,7 @@
     isNormalUser = true;
     # hashedPassword = lib.fileContents ./secrets/demery-hashed-password;
     openssh.authorizedKeys.keys = [
-        (builtins.readFile ~/.ssh/id_rsa.pub)
+        "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDHThzA2eGRUvFZslEf8hvjb8NMKtWgeskSWXVX0epyacG3tKD4g0Jz1UJSww0zOda9oqpqIdsqpvLEN734GMw+JE6ESPsqy2FeZ5izgJoGe/o81M9ihVzZu5wKn2G43rxaW1ywq7UZpnsdwtNj73kYOVAFJxCsPVuJgyN0GFwww+NXX+WVMCq4Wi7O+yysxxFSdZaebSG23MjFB/TAdd8TPMxQygL+VGR9BewZTTWVau4JvcQCkYUHyMoijeb+/lea/xtoZ8z+ylqzCLycojHonrM1vsVhqFAubEbsCYZMp2BuKhkTZsOUehIaznxJ+8miKTf8bQLmPH/1y1mbkaRPlkvkuN8AfZ9azaJp4cBQjPc5ayrBIqG6k0zavtwnqZWEr40aYTpTKdmWHUfn0Ky6AFb7mt2QHEdKULSWeGjxyJwow1cRRNbCMrHn4dCC/VNCDOYBtTYx6Ey9AiYI+ih0FKy8LQl4trv7aVLG4MmW/RUoorBRk3hKXzKUp/U+V58= thomas@MacBook-Pro-von-Thomas.local"
     ];
     uid = 1000;
     extraGroups = [
