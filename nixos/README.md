@@ -48,9 +48,10 @@ systemctl restart sshd
   * This will format the Disko disks and install nixos
   * remove machine from .ssh/known_hosts if it was already connected to before
 
-## Rebuild Nixos
+## Rebuild Nixos using nix shell escape hatch
 * Clone git repo using `git clone git@github.com:thomaswienecke/wirdnix.git`
-* Run `nixos-rebuild switch --flake .#wirdnix --target-host "wirdnix@wirdnix.wienecke"`
+* Run `nix shell nixpkgs#nixos-rebuild`
+* Run `nixos-rebuild switch --fast --use-remote-sudo --flake .#wirdnix --build-host "wirdnix@wirdnix.wienecke" --target-host "wirdnix@wirdnix.wienecke"`
 
 # Acknowledgements
 Thanks to [@danielemery](https://github.com/danielemery) for the inspiration for nixos-disko
