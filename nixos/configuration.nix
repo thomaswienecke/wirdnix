@@ -18,7 +18,6 @@
   console = {
     font = "Lat2-Terminus16";
     keyMap = "de";
-    useXkbConfig = true; # use xkbOptions in tty.
   };
 
 #   users.users.root.openssh.authorizedKeys.keys = [
