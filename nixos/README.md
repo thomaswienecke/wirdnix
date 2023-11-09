@@ -1,11 +1,15 @@
 # Setup of wirdnix homelab server
 
-This explains how to setup nixos on a fresh machine using nixos-anywhere and nixos-disko.
+This describes how to setup this nixos configuration on a baremetal machine using [nixos-anywhere](https://github.com/nix-community/nixos-anywhere). Checkout their [Quickstart](https://github.com/nix-community/nixos-anywhere/blob/main/docs/quickstart.md) for more information.
+
 
 ## Prerequisites
 
-* deployment machine with nix installed
-  * experimental features enabled by adding `experimental-features = nix-command flakes` to `/etc/nix/nix.conf` (on macos)
+### deployment machine with nix installed
+* experimental features enabled by adding `experimental-features = nix-command flakes` to `/etc/nix/nix.conf` (on macos)
+* add `trusted-users = @wheel root thomas;` to `/etc/nix/nix.conf` (on macos) and reboot
+  * this should make `nix store ping` return `Trusted 1` (needed for `--build-on-remote` due to aarch64 m1 mac)
+
 
 ## Boot machine into minimal nixos
 * Pikvm is physically attached to the server
@@ -38,16 +42,15 @@ systemctl restart sshd
 * Copy the hardware-configuration (printed by the prior command) to `nixos/hardware/hardware-configuration.nix`
   * Commit and Push
 
-## Install Nixos
-* Run `nixos-generate-config --root /mnt`
-* Copy the hardware-configuration (printed by the prior command) to `nixos/hardware/hardware-configuration.nix`
-  * Commit and Push
-* Run `cd nixos`
-* Install by running `nixos-install --flake .#wirdnix`
+## Install Nixos using Nixos-Anywhere
+* Run `nix run github:numtide/nixos-anywhere -- --flake .#wirdnix --vm-test` to test config in VM (not working on m1 mac due to aarch64)
+* Run `nix run github:numtide/nixos-anywhere -- --build-on-remote --flake .#wirdnix root@wirdnix.wienecke`
+  * This will format the Disko disks and install nixos
+  * remove machine from .ssh/known_hosts if it was already connected to before
 
-## Update Nixos
+## Rebuild Nixos
 * Clone git repo using `git clone git@github.com:thomaswienecke/wirdnix.git`
-* Run `sudo nixos-rebuild switch --flake <gitrepolocation>/nixos#wirdnix`
+* Run `nixos-rebuild switch --flake .#wirdnix --target-host "wirdnix@wirdnix.wienecke"`
 
 # Acknowledgements
 Thanks to [@danielemery](https://github.com/danielemery) for the inspiration for nixos-disko
