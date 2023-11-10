@@ -10,6 +10,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  # Load ZFS pool
   boot.supportedFilesystems = [ "zfs" ];
   networking.hostId = "5505b5a5";
   boot.zfs.forceImportRoot = false;
@@ -24,11 +25,7 @@
     font = "Lat2-Terminus16";
     keyMap = "de";
   };
-
-#   users.users.root.openssh.authorizedKeys.keys = [
-#     # change this to your ssh key
-#     (builtins.readFile ~/.ssh/id_rsa.pub)
-#   ];
+  
   users.users.wirdnix = {
     description = "Thomas Wienecke";
     isNormalUser = true;
@@ -41,10 +38,9 @@
       "docker"
       "wheel"
     ];
-    packages = with pkgs; [
-      cmatrix
-    ];
   };
+
+  # wirdnix user can elevate to root without password
   security.sudo.extraRules = [
     {
       users = [ "wirdnix" ];
@@ -63,12 +59,24 @@
     btop
     powertop
     dig
-    bat
   ];
 
   services.openssh = {
     enable = true;
-    settings.PasswordAuthentication = false;
+    settings = {
+      PasswordAuthentication = false;
+      PermitRootLogin = "no";
+    };
+  };
+
+  virtualisation = {
+    docker = {
+      enable = true;
+      autoPrune = {
+        enable = true;
+        dates = "weekly";
+      };
+    };
   };
 
   # Open ports in the firewall.
