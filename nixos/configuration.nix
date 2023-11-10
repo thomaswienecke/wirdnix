@@ -25,6 +25,8 @@
     font = "Lat2-Terminus16";
     keyMap = "de";
   };
+
+  powerManagement.powertop.enable = true;
   
   users.users.wirdnix = {
     description = "Thomas Wienecke";
