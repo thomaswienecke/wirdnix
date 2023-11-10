@@ -10,6 +10,11 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  boot.supportedFilesystems = [ "zfs" ];
+  networking.hostId = "5505b5a5";
+  boot.zfs.forceImportRoot = false;
+  boot.zfs.extraPools = [ "datapool" ];
+
   networking.hostName = "wirdnix";
 
   time.timeZone = "Europe/Berlin";

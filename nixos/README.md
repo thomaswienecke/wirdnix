@@ -53,5 +53,12 @@ systemctl restart sshd
 * Run `nix shell nixpkgs#nixos-rebuild`
 * Run `nixos-rebuild switch --fast --use-remote-sudo --flake .#wirdnix --build-host "wirdnix@wirdnix.wienecke" --target-host "wirdnix@wirdnix.wienecke"`
 
+# ZFS Pool Setup
+Should be done automatically by nixos because of `boot.zfs.extraPools = [ "datapool" ]`
+### If not:
+* Run `sudo zpool list`
+* Run `sudo zpool import`
+* Run `sudo zpool import -f datapool` (needs to be done only for migration from another system)
+
 # Acknowledgements
 Thanks to [@danielemery](https://github.com/danielemery) for the inspiration for nixos-disko
