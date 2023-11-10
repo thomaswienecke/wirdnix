@@ -12,6 +12,9 @@
         modules = [
           disko.nixosModules.disko
           ./configuration.nix
+
+          # Kubernetes single node cluster
+          ./modules/kube.nix
         ];
       };
     };
