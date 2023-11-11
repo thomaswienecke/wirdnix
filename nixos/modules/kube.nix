@@ -1,5 +1,7 @@
 { pkgs, ... }: {
     networking.firewall.allowedTCPPorts = [
+        80 # traefik
+        443 # traefik
         6443 # k3s: required so that pods can reach the API server (running on port 6443 by default)
         9000 # k3s traefik dashboard
         9898 # test podinfo deployment should be reachable
