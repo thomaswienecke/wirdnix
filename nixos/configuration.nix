@@ -59,6 +59,7 @@
     curl
     git
     btop
+    bat
     powertop
     dig
   ];
