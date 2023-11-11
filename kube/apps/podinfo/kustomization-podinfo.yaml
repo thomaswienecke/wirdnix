@@ -7,7 +7,6 @@ metadata:
 spec:
   interval: 15m
   path: "apps/podinfo"
-  validation: server
   prune: true
   sourceRef:
     kind: GitRepository
