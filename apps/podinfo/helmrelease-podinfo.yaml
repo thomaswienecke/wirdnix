@@ -21,6 +21,6 @@ spec:
     ingress:
       enabled: true
       hosts:
-        - host: podinfo.10.0.0.118.nip.io
+        - host: "podinfo.10.0.0.118.nip.io"
           paths:
             - /
