@@ -19,10 +19,3 @@ spec:
       create: true
       passwordHash: $2a$10$xbO.5g8TgS8Q7JlX7hm81OJ22m5h6eJ5o84ki5mrs5avcypO2tQVW
       username: admin
-  ingress:
-    enabled: true
-    hosts:
-      - host: weave-gitops.10.0.0.118.nip.io
-        paths:
-          - path: /
-            pathType: ImplementationSpecific
