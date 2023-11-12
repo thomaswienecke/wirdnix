@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  creationTimestamp: null
+  name: traefik-helm-chart-value-overrides
+  namespace: traefik
+data:
+  values.yaml: |-  
+    # <upstream values go here>
