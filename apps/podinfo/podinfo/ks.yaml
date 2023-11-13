@@ -5,7 +5,7 @@ metadata:
   namespace: default
 spec:
   interval: 10m0s
-  path: ./apps/podinfo
+  path: ./apps/podinfo/podinfo/app
   prune: true
   timeout: 2m # if not set, this defaults to interval duration, which is 1h
   sourceRef:
