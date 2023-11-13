@@ -12,8 +12,3 @@ spec:
     kind: GitRepository
     name: flux-system
     namespace: flux-system
-  healthChecks:
-    - apiVersion: apps/v1
-      kind: Deployment
-      name: traefik
-      namespace: traefik
