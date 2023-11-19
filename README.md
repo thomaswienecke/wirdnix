@@ -13,6 +13,7 @@ Kubernetes is used to orchestrate the docker containers
 FluxCD is used to sync the kubernetes cluster with the git repository (pull based)
 
 ### Setup
+* Make sure the MetalLB IPAddressPool (`/apps/metallb/metallb/config/ipaddresspool.yaml`) is not using any IPs in the DHCP range or static IPs
 * SSH into machine by running `ssh wirdnix@wirdnix.wienecke`
 * Copy `/etc/rancher/k3s/k3s.yaml` to `~/.kube/config`
   * Change owner to current user by running `sudo chown wirdnix ~/.kube/config`
