@@ -6,6 +6,7 @@ metadata:
 spec:
   dependsOn: 
   - name: metallb-app
+    namespace: flux-system
   interval: 10m0s
   path: ./apps/metallb/metallb/config
   prune: true
