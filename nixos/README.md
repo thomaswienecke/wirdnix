@@ -50,7 +50,8 @@ systemctl restart sshd
 
 ## Rebuild Nixos using nix shell escape hatch
 * Clone git repo using `git clone git@github.com:thomaswienecke/wirdnix.git`
-* Run `nix shell nixpkgs#nixos-rebuild`
+* Go into the directory `cd nixos`
+* Run `nix develop`
 * Run `nixos-rebuild switch --fast --use-remote-sudo --flake .#wirdnix --build-host "wirdnix@wirdnix.wienecke" --target-host "wirdnix@wirdnix.wienecke"`
 
 # ZFS Pool Setup
