@@ -16,7 +16,7 @@
       forAllSystems = f: genAttrs supportedSystems (system: f system);
     in 
     {
-      devShell = forAllSystems (system: 
+      devShells = forAllSystems (system:
         let pkgs = import nixpkgs { inherit system; }; in {
           default = pkgs.mkShell {
             buildInputs = with pkgs; [
